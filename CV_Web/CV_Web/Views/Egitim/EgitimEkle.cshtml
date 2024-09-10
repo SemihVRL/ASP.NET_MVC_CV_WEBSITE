@@ -1,0 +1,58 @@
+﻿@model CV_Web.Models.EntityFramework.TBLEGİTİMLERİM
+@{
+    ViewBag.Title = "EgitimEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Eğitim Ekleme Sayfası</h2>
+<br />
+
+<form class="form-group" method="post">
+    <div>
+        
+        @Html.Label("EĞİTİM SEVİYESİ")
+       
+        @Html.TextBoxFor(x => x.Baslik, new { @class = "form-control", placeholder = "Eğitim seviyenizi yazınız" })
+    
+        @Html.ValidationMessageFor(x => x.Baslik, "",new {@style="color:red"})
+    </div>
+
+    <div>
+
+
+        @Html.Label("OKUL")
+
+
+
+        @Html.TextBoxFor(x => x.AltBaslik1, new { @class = "form-control", placeholder = "Okulunuzu yazınız" })
+
+        @Html.ValidationMessageFor(x => x.AltBaslik1, "", new { @style = "color:red" })
+    </div>
+
+    <div>
+
+        @Html.Label("BÖLÜM")
+
+        @Html.TextBoxFor(x => x.AltBaslik2, new { @class = "form-control", placeholder = "Bölümünüzü yazınız" })
+        
+    
+    </div>
+
+    <div>
+        @Html.Label("GANO")
+
+        @Html.TextBoxFor(x => x.GNO, new { @class = "form-control", placeholder = "GANO yazınız" })
+
+        @Html.ValidationMessageFor(x => x.GNO, "", new { @style = "color:blue" })
+    </div>
+
+    <div>
+        @Html.Label("TARİH")
+
+        @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control", placeholder = "Tarih yazınız" })
+    </div>
+    <br />
+
+
+    <button class="btn btn-danger">Ekle</button>
+</form>

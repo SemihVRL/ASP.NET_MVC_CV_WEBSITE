@@ -1,0 +1,40 @@
+﻿@model CV_Web.Models.EntityFramework.TBLSERTİFİKALARIM
+@{
+    ViewBag.Title = "SertifikaEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+
+<h2>SERTİFİKA EKLEME SAYFASI</h2>
+
+<br />
+
+@using (@Html.BeginForm("SertifikaEkle", "Sertifika", FormMethod.Post))
+{
+    <div>
+        @Html.LabelFor(x => x.ID)
+        @Html.TextBoxFor(x => x.ID, new { @class = "form-control", @readonly="readonly"})
+
+    </div>
+
+    <div>
+        @Html.LabelFor(x => x.Aciklama)
+        @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control", })
+
+    </div>
+
+    <div>
+        @Html.LabelFor(x => x.Tarih)
+        @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
+
+    </div>
+
+    <br />
+
+    <button class="btn btn-primary">Ekle</button>
+
+
+
+
+}
+

@@ -1,0 +1,35 @@
+﻿@model CV_Web.Models.EntityFramework.TBLSERTİFİKALARIM
+@{
+    ViewBag.Title = "SertifikaGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+
+<h2>Sertifika Güncelleme Ekranı</h2>
+
+<br />
+
+@using (@Html.BeginForm("SertifikaGetir", "Sertifika", FormMethod.Post))
+{
+    <div>
+        @Html.LabelFor(x=>x.ID)
+        @Html.TextBoxFor(x=>x.ID, new{@class="form-control" })
+
+    </div>
+
+    <div>
+        @Html.LabelFor(x=>x.Aciklama)
+        @Html.TextBoxFor(x=>x.Aciklama, new {@class="form-control"})
+    </div>
+
+    <div>
+
+        @Html.LabelFor(x=>x.Tarih)
+        @Html.TextBoxFor(x => x.Tarih, new {@class="form-control"})
+    </div>
+
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+    <a href="/Sertifika/SertifikaSil/@ViewBag.d">SİL</a>
+}          

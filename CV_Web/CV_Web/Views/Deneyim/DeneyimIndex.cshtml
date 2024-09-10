@@ -1,0 +1,41 @@
+﻿@using CV_Web.Models.EntityFramework
+@model  List<TBLDENEYİM>
+@{
+    ViewBag.Title = "Deneyim";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+
+<h2>Deneyim Listesi</h2>
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>İŞ YERİ</th>
+        <th>GÖREVİ</th>
+        <th>TARİH</th>
+        <th>SİL</th>
+        <th>DÜZENLE</th>
+    </tr>
+
+
+    <tbody>
+        @foreach (var X in Model)
+        {
+            <tr>
+                <td>@X.ID</td>
+                <td>@X.Baslik</td>
+                <td>@X.AltBaslik</td>
+                <td>@X.Tarih</td>
+                <td><a href="/Deneyim/DeneyimSil/@X.ID" class="btn btn-danger">SİL</a></td>
+                <td><a href="/Deneyim/DeneyimGetir/@X.ID" class="btn btn-success">GÜNCELLE</a></td>
+
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+<a href="/Deneyim/DeneyimEkle" class="btn btn-primary">Yeni Deneyim Ekle</a>
+

@@ -1,0 +1,31 @@
+﻿@using CV_Web.Models.EntityFramework
+@model List<TBLHOBİLERİM>
+
+@{
+    ViewBag.Title = "HobiIndex";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Hobi Sayfası</h2>
+<br />
+<form method="post">
+    @foreach (var x in Model)
+    {
+        <label>Hobiler</label>
+        <textarea rows="2" class="form-control" name="Hobi1">@x.Hobi1</textarea>
+
+        <label>Hobiler</label>
+        <textarea rows="2" class="form-control" name="Hobi2">@x.Hobi2</textarea>
+
+        <label>Hobiler</label>
+        <textarea rows="2" class="form-control" name="Hobi3">@x.Hobi3</textarea>
+
+
+    }
+
+    <br />
+    <button class="btn btn-primary">Güncelle</button>
+
+</form>
+
+

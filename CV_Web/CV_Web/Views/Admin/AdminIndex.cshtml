@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "AdminIndex";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@using CV_Web.Models.EntityFramework
+@model List<TBLADMİN>
+
+<br />
+<h3>
+    Admin İşlemleri
+    
+</h3>
+
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Kullanıcı Adı</th>
+        <th>Şifre</th>
+        <th>Düzenle</th>
+        <th>Kaldır</th>
+        
+    </tr>
+
+
+    <tbody>
+        @foreach (var X in Model)
+        {
+            <tr>
+                <td>@X.ID</td>
+                <td>@X.KullaniciAdi</td>
+                <td>@X.Sifre</td>
+              
+                
+                <td><a href="/Admin/AdminDüzenle/@X.ID" class="btn btn-danger">Düzenle</a></td>
+                <td><a href="/Admin/Sil/@X.ID" class="btn btn-success">Kaldır</a></td>
+
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+<a href="/Admin/AdminEkle" class="btn btn-primary">Admin Ekle</a>
+
+
+

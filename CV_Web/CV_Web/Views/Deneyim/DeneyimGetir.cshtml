@@ -1,0 +1,48 @@
+﻿@model CV_Web.Models.EntityFramework.TBLDENEYİM
+@{
+    ViewBag.Title = "DeneyimGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+
+<h2>Deneyim Güncelleme Ekranı</h2>
+<br />
+
+<form method="post">
+    <div>
+        @Html.Label("DENEYİM ID")
+        @Html.TextBoxFor(x => x.ID, new { @class = "form-control" })
+    </div>
+
+    <div>
+        @Html.Label("İŞ YERİ")
+        @Html.TextBoxFor(x => x.Baslik, new { @class = "form-control" })
+    </div>
+
+    <div>
+        @Html.Label("GÖREVİ")
+        @Html.TextBoxFor(x => x.AltBaslik, new { @class = "form-control" })
+    </div>
+
+
+    <div>
+        @Html.Label("TARİH")
+        @Html.TextBoxFor(x => x.Tarih, new {@class ="form-control"})
+    </div>
+
+    <div>
+        @Html.Label("AÇIKLAMA")
+        @Html.TextAreaFor(x => x.Aciklama, new { @class = "form-control" })
+    </div>
+
+
+
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+
+</form>
+
+
+
+

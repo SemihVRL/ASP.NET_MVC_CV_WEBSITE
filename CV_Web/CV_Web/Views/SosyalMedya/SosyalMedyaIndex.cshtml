@@ -1,0 +1,155 @@
+﻿@using CV_Web.Models.EntityFramework
+@model List<TBLSOSYALMEDYA>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Sosyal Medya Alanlarım</h3>
+                            </div>
+
+                            
+                            <!-- /.card-header -->
+                            <div class="card-body">
+
+
+                               <button class="btn btn-info" data-toggle="modal" data-target="#Modal1">Yeni Sosyal Medya Hesabı Ekle</button>
+                                <br />
+                                <br />
+                                <table class="table table-bordered">
+
+
+                                    <tr>
+                                        <th style="width: 10px">#</th>
+                                        <th>Sosyal Medya</th>
+                                        <th>Durum</th>
+                                        <th>Durum Güncelleme</th>
+                                        <th>Sil</th>
+                                        <th>Düzenle</th>
+                                        
+                                    </tr>
+
+                                    <tbody>
+                                        @foreach (var x in Model)
+                                        {
+                                            <tr>
+                                                <td>@x.ID</td>
+                                                <td>@x.Ad</td>
+                                                <td>@x.Durum</td>
+                                            
+
+
+
+                                                <td>
+
+                                                    <a href="/SosyalMedya/Aktif/@x.ID" class="btn btn-danger btn-sm">
+
+                                                        <i class="fas fa-globe-americas"></i>
+                                                        AKTİF BUTONU
+                                                    </a>
+
+                                                    <a href="/SosyalMedya/Pasif/@x.ID" class="btn btn-danger btn-sm">
+
+                                                        <i class="fas fa-globe-americas"></i>
+                                                        PASİF BUTONU
+                                                    </a>
+
+
+                                                </td>
+
+                                                <td>
+
+                                                    <a href="/SosyalMedya/Sil/@x.ID" class="btn btn-danger btn-sm">                         
+
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                        Sil
+                                                    </a>
+                                                </td>
+
+                                                <td>
+                                                    <a href="/SosyalMedya/Getir/@x.ID" class="btn btn-success btn-sm">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                        Duzenle
+                                                    </a>
+
+                                                </td>
+
+                                            </tr>
+                                        }
+                                    </tbody>
+
+
+                                </table>
+                                <br />
+
+                            </div>
+                        </div>
+                            <!-- /.card -->
+                        </div>
+                    </div>
+                </div><!-- /.container-fluid -->
+            </section>
+            
+            <!-- /.content -->
+
+        <div class="modal" id="Modal1"> 
+                <div class="modal-dialog">
+                        <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Sosyal Medya Ekle</h4>
+                                </div>
+
+                                <form method="post" action="/SosyalMedya/Ekle">
+                                    <div class="modal-body">
+                                        <label>Sosyal Medya İsmi</label>
+                                        <input type="text" name="Ad" class="form-control" />
+                                        <br />
+
+                                        <label>Sosyal Medya Linki</label>
+                                        <input type="text" name="Link" class="form-control" />
+                                        <br />
+
+                                        @*<label>Durum</label>
+                                        <input type="text" name="Durum" class="form-control" />
+                                        <br />*@
+
+                                        <label>İkon</label>
+                                        <input type="text" name="ikon" class="form-control" />
+                                        <br />
+
+                                        <button class="btn btn-primary"> KAYDET</button>
+
+                                    </div>
+
+                                </form>
+
+                        </div>
+
+                </div>
+
+
+        </div>
+
+
+        </div>
+    </body>
+</html>

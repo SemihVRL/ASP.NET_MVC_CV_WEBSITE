@@ -1,0 +1,106 @@
+﻿@using CV_Web.Models.EntityFramework
+@model List<TBLYETENEKLERİM>
+
+@{string renk = "";}
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Yetenek Listem</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    
+                                        <tr>
+                                            <th style="width: 10px">#</th>
+                                            <th>YETKİNLİKLEİRM</th>
+
+                                            <th>Derece</th>
+                                            <th style="width: 40px">Oran</th>
+                                            <th>Sil / Güncelle</th>
+                                        </tr>
+                                    
+                                    <tbody>
+                                        @foreach (var x in Model)
+                                        {
+                                            if (x.Oran >= 70 && x.Oran <= 80)
+                                            {
+                                                renk = "progress-bar bg-warning";
+                                            }
+
+                                            if (x.Oran >= 50 && x.Oran <= 60)
+                                            {
+                                                renk = "progress-bar bg-success";
+                                            }
+
+                                            if (x.Oran <= 60 && x.Oran <= 70)
+                                            {
+                                                renk = "progress-bar bg-primary";
+                                            }
+
+                                            if (x.Oran >= 61 && x.Oran <= 71)
+                                            {
+                                                renk = "progress-bar bg-danger";
+                                            }
+
+                                            if (x.Oran >= 10 && x.Oran <= 30)
+                                            {
+                                                renk = "progress-bar bg-danger";
+                                            }
+                                            <tr>
+                                                <td>@x.ID</td>
+                                                <td>@x.Yetenek</td>
+
+                                                <td>                                                                                                                    
+                                                    <div class="progress progress-xs">
+                                                        <div class="@renk" style="width: @x.Oran%"></div>
+                                                    </div>
+                                                </td>
+                                                <td><span class="@renk">@x.Oran</span></td>
+                                                <td>
+
+                                                    <a href="/Yetenekler/YetenekSil/@x.ID" class="btn btn-danger btn-sm">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                        Sil
+                                                    </a>
+
+
+                                                    <a href="/Yetenekler/YetenekGetir/@x.ID" class="btn btn-success btn-sm">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                        GÜNCELLE
+                                                    </a>
+
+                                                </td>
+                                            </tr>
+
+                                        }
+                                    </tbody>
+                                </table>
+                                <br />
+                                <a href="/yetenekler/YetenekEkle" class="btn btn-primary">Yeni Yetenek Ekle</a>
+                            </div>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+</body>
+</html>

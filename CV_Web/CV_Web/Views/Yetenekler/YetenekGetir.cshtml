@@ -1,0 +1,28 @@
+﻿@model CV_Web.Models.EntityFramework.TBLYETENEKLERİM
+@{
+    ViewBag.Title = "YetenekGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Yetenek Güncelleme Sayfası</h2>
+<br />
+
+@using (@Html.BeginForm("YetenekGetir", "Yetenekler", FormMethod.Post))
+{
+    <div>
+        @Html.LabelFor(x => x.ID)
+        @Html.TextBoxFor(x => x.ID, new { @class = "form-control" })
+    </div>
+
+    <div>
+        @Html.LabelFor(x => x.Yetenek)
+        @Html.TextBoxFor(x => x.Yetenek, new { @class = "form-control" })
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Oran)
+        @Html.TextBoxFor(x => x.Oran, new { @class = "form-control" })
+    </div>
+    <br />
+    <button class="btn btn-primary">Güncelle</button>
+}

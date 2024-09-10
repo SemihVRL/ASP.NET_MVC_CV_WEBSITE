@@ -1,0 +1,68 @@
+﻿@using CV_Web.Models.EntityFramework
+@model List<TBLEGİTİMLERİM>
+
+
+@{
+    ViewBag.Title = "EgitimIndex";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Eğitim Listesi</h2>
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Eğitim Seviyesi</th>
+        <th>Okul</th>
+        <th>Bölüm</th>
+        <th>Gano</th>
+        <th>Tarih</th>
+        <th>Silme İşlemi</th>
+        <th>Güncelleme İşlemi</th>
+
+    </tr>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.ID</td>
+                <td>@x.Baslik</td>
+                <td style="font-size:15px;">@x.AltBaslik1</td>
+                <td>@x.AltBaslik2</td>
+                <td>@x.GNO</td>
+                <td>@x.Tarih</td>
+
+                <td>
+                    <a href="/Egitim/EgitimSil/@x.ID" class="btn btn-warning">
+
+                        <i class="fas fa-trash-alt"> SİL</i>
+
+                    </a>
+                </td>
+                <td>
+                    <a href="/Egitim/EgitimGetir/@x.ID" class="btn btn-success">
+
+                        <i class="fas fa-pencil-alt"> GÜNCELLE</i>
+
+
+
+
+                    </a>
+                </td>
+
+
+            </tr>
+        }
+
+    </tbody>
+
+
+
+
+</table>
+<br />
+
+<a href="/Egitim/EgitimEkle" class="btn btn-primary">Yeni Eğitim Ekle</a>
+

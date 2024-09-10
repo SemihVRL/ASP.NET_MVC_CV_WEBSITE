@@ -1,0 +1,53 @@
+﻿@using CV_Web.Models.EntityFramework
+@model List<TBLHAKKIMDA>
+@{
+    ViewBag.Title = "HakkimdaIndex";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Hakkımda Sayfası</h2>
+<br />
+
+<form method="post">
+    @foreach (var x in Model)
+    {
+        <label>ID</label>
+        <input type="text" name="ID" value="@x.ID" class="form-control" placeholder="@($"ID giriniz: {x.ID}")" readonly />
+        <br />
+        <label>Adi</label>
+        <input type="text" name="Adi" value="@x.Adi" class="form-control" />
+
+        <br />
+        <label>Soyadı</label>
+        <input type="text" name="Soyadi" value="@x.Soyadi" class="form-control" />
+
+        <br />
+        <label>Adres</label>
+        <input type="text" name="Adres" value="@x.Adres" class="form-control" />
+
+        <br />
+        <label>Telefon</label>
+        <input type="text" name="Telefon" value="@x.Telefon" class="form-control" />
+
+        <br />
+        <label>Mail</label>
+        <input type="text" name="Mail" value="@x.Mail" class="form-control" />
+
+        <br />
+        <label>Mail</label>
+        <textarea rows="1" class="form-control" name="Aciklama"> @x.Aciklama</textarea>
+
+        <br />
+        <label>Resim</label>
+        <input type="text" name="Resim" value="@x.Resim" class="form-control" />
+
+
+
+
+
+
+    }
+    <br />
+    <button class="btn btn-warning">Güncelle</button>
+
+</form>

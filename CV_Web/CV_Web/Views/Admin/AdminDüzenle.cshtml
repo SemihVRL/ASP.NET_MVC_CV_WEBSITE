@@ -1,0 +1,30 @@
+﻿@model CV_Web.Models.EntityFramework.TBLADMİN
+@{
+    ViewBag.Title = "AdminDüzenle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<br />
+<h2>Admin Güncelleme Sayfası</h2>
+<br />
+
+
+<form class="form-group" method="post">
+    <div>
+        @Html.Label("Kullanıcı Adı")
+        @Html.TextBoxFor(x => x.KullaniciAdi, new { @class = "form-control" })
+    </div>
+
+    <div>
+        @Html.Label("Şifre")
+        @Html.TextBoxFor(x => x.Sifre, new { @class = "form-control" })
+    </div>
+
+    
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+</form>
+
+

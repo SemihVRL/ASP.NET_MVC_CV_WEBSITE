@@ -1,0 +1,26 @@
+﻿@using CV_Web.Models.EntityFramework
+@model List<TBLHOBİLERİM>
+
+<div class="resume-section-content">
+    <h2 class="mb-5">HOBİLERİM</h2>
+    @foreach (var x in Model)
+    {
+        <li>
+            <span class="fa-li"><i class="fas fa-check"></i></span>
+            @x.Hobi1
+
+        </li>
+        <br />
+        <li>
+            <span class="fa-li"><i class="fas fa-check"></i></span>
+            @x.Hobi2
+
+        </li>
+        <br />
+        <li>
+            <span class="fa-li"><i class="fas fa-check"></i></span>
+            @x.Hobi3
+
+        </li>
+    }
+</div>

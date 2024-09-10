@@ -1,0 +1,31 @@
+﻿@model CV_Web.Models.EntityFramework.TBLSOSYALMEDYA
+
+
+
+@{
+    ViewBag.Title = "Getir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h2>Sosyal Medya Düzenleme</h2>
+<br />
+@using (@Html.BeginForm("Getir", "SosyalMedya", FormMethod.Post))
+{
+    <div>
+        @Html.Label("Sosyal Medya Adı")
+        @Html.TextBoxFor(x => x.Ad, new { @class = "form-control" })
+    </div>
+
+    <div>
+        @Html.Label("Link")
+        @Html.TextBoxFor(x => x.Link, new { @class = "form-control" })
+    </div>
+
+    <div>
+        @Html.Label("İkon")
+        @Html.TextBoxFor(x => x.ikon, new { @class = "form-control" })
+    </div>
+
+    <br />
+    <button class="btn btn-primary">Güncelle</button>
+}
+
